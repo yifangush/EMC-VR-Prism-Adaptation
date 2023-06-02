@@ -330,12 +330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4d4cada5a2ddb46a9bcec47ae7bcc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos:
-  - Position 0
-  - Position -10
-  - Position 10
-  - Position -20
-  - Position 20
   timer: 0
   timerStart: 0
 --- !u!114 &503835239
@@ -609,6 +603,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fa289d3c2a352794bb32e30ec7ff4dba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 243dee89c4b23294cac880b84c129123, type: 2}
+    - target: {fileID: -7511558181221131132, guid: fa289d3c2a352794bb32e30ec7ff4dba, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 734f4efc9d2033d469eda8c9c27c9505, type: 2}
     - target: {fileID: 919132149155446097, guid: fa289d3c2a352794bb32e30ec7ff4dba, type: 3}
       propertyPath: m_Name
       value: Target
@@ -723,7 +725,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543043637}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2, y: 2, z: 2.0000012}

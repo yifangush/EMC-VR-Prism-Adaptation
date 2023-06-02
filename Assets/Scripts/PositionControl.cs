@@ -9,14 +9,17 @@ using TMPro;
 
 public class PositionControl : MonoBehaviour
 {
-    public string[] pos = { "Position 0", "Position -10", "Position 10", "Position -20", "Position 20" };
+    public static string[] pos = { "Position 0", "Position -10", "Position 10", "Position -20", "Position 20" };
     Random rnd = new Random();
-    private int i = 0;
+    public static int i = 0;
     private int change_time = 6; // 9 sec + 5 sec initial delay  // 7 sec sweet point for 4-sec bullet reload
     public float timer = 0;
     private int numTrials = 0;
     public bool timerStart = false;
 
+    
+
+    
     // Start is called before the first frame update
     void Start()
     {

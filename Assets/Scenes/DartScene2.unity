@@ -624,12 +624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a4d4cada5a2ddb46a9bcec47ae7bcc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos:
-  - Position 0
-  - Position -10
-  - Position 10
-  - Position -20
-  - Position 20
   timer: 0
   timerStart: 0
 --- !u!4 &812150005
@@ -745,6 +739,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: fa289d3c2a352794bb32e30ec7ff4dba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a1ac0531af008f04387386e388f78a4f, type: 2}
     - target: {fileID: 919132149155446097, guid: fa289d3c2a352794bb32e30ec7ff4dba, type: 3}
       propertyPath: m_Name
       value: Target
@@ -867,8 +865,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 0.56
+  m_fontSizeBase: 0.56
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -997,7 +995,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15, y: 15, z: 4}
+  m_Size: {x: 20, y: 30, z: 4}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1582686868
 GameObject:

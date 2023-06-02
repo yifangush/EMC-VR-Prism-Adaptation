@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = System.Random;
 
 public class SceneLoader : MonoBehaviour
 {
+    Random rnd = new Random();
+
     IEnumerator SwitchScene()
     {
             yield return new WaitForSeconds(3f);
             CollisionBullet.totalScore = 0;
+            print("score min reached - loading next scene");
             print("score min reached - loading next scene");
             print("Leaving Scene " + SceneManager.GetActiveScene().buildIndex.ToString()); // outputs the scene number
             print("Entering Scene " + (SceneManager.GetActiveScene().buildIndex + 1).ToString()); // outputs next scene number
@@ -29,8 +33,8 @@ public class SceneLoader : MonoBehaviour
         {
             print("space key was pressed - loading next scene");
             print("Leaving Scene " + SceneManager.GetActiveScene().buildIndex.ToString()); // outputs the scene number
-            print("Entering Scene " + (SceneManager.GetActiveScene().buildIndex + 1).ToString()); // outputs next scene number
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); // moves to the scene with the next index
+            print("Entering Scene 0"); // outputs next scene number
+            SceneManager.LoadScene(6); // moves to the scene with the next index
         }
 
         /*if (false && CollisionBullet.totalScore >= 150) // remove 0 &&
@@ -52,7 +56,7 @@ public class SceneLoader : MonoBehaviour
             print("Leaving Tutorial Scene "); // outputs the scene number
             print("Entering Dart Scene 0");
             Destroy(GameObject.Find("Player"));
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(0);
         }
     }
 

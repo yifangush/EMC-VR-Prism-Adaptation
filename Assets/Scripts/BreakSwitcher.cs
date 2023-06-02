@@ -2,32 +2,74 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Random = System.Random;
+
+
 
 public class BreakSwitcher : MonoBehaviour
 {
+    Random rnd = new Random();
+    public static int[] SceneIndex = { -1, -1, -1, -1, -1 };
     IEnumerator Rest()
-    {
-        yield return new WaitForSeconds(10f); // wait 10f-second break until next round
-        StartCoroutine(Gun.coroutine);
-        if (Gun.round <= 4)
-        {
-            SceneManager.LoadScene(Gun.round + 1);
-        }
-        else
-        {
-            SceneManager.LoadScene(1);
-        }
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        StartCoroutine(Rest());
-    }
+     {
+         yield return new WaitForSeconds(1f); // wait 10f-second break until next round
+         //StartCoroutine(Gun.coroutine);
+         if (SceneIndex[4] == -1)
+         {
+             int k;
+             while (true)
+             {
+                 k = rnd.Next(0, 5);
+                 bool match = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+                 for (int i = 0; i < 5; i++)
+                 {
+                     if (k == SceneIndex[i])
+                     {
+                         match = true;
+                     }
+                 }
+
+                 if (match == false)
+                 {
+                     break;
+                 }
+
+             }
+             for (int i = 0; i < 5; i++)
+             {
+                 if (SceneIndex[i] == -1)
+                 {
+                     SceneIndex[i] = k;
+                 }
+             }
+
+             SceneManager.LoadScene(k);
+         }
+         else
+         {
+             SceneManager.LoadScene(0);
+         }
+
+     }
+     // Start is called before the first frame update
+     
+    
+    void Start()
+     {
+
+
+     }
+
+     // Update is called once per frame
+     void Update()
+     {
+                StartCoroutine(Rest());
+
+
+
+     }
+
+
+   
 }

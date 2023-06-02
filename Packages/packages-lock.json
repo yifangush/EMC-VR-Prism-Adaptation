@@ -252,7 +252,7 @@
       }
     },
     "com.varjo.xr": {
-      "version": "file:C:/Users/elega/Downloads/VarjoUnityXRPlugin-master/VarjoUnityXRPlugin-master",
+      "version": "file:C:/Users/elega/Documents/VarjoUnityXRPlugin-master/VarjoUnityXRPlugin-master",
       "depth": 0,
       "source": "local",
       "dependencies": {

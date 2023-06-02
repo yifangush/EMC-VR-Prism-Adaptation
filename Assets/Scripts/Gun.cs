@@ -19,7 +19,7 @@ public class Gun : MonoBehaviour
     public static float time = 0;
     public static int round = 0;
     public static int maxScore = 750; // 1000 -> 750 score to reach, 150 for debug testing
-    public static int maxTime = 180; // 3 minutes per round maximum
+    public static int maxTime = 5; // 2.5 minutes per round maximum
     public static bool rest = false;
 
     IEnumerator Wait()
@@ -32,7 +32,7 @@ public class Gun : MonoBehaviour
 
     IEnumerator Fire()
     {
-        while (CollisionBullet.totalScore < maxScore && time < maxTime)
+        while (time < maxTime) // removed CollisionBullet.totalScore < maxScore &&
         {
             yield return new WaitForSeconds(delay);
 
@@ -41,9 +41,9 @@ public class Gun : MonoBehaviour
 
             bulletSpawnPoint.transform.rotation = hand.transform.rotation;
             // ROTATION ECCENTRICITY: 
-            if (round <= 4)
+            if (SceneManager.GetActiveScene().buildIndex <= 4)
             {
-                eccentricity = round * 10;
+                eccentricity = SceneManager.GetActiveScene().buildIndex * 10;
             }
             else
             {
@@ -65,14 +65,14 @@ public class Gun : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("Starting Round " + round);
+        Debug.Log("Starting Round " + SceneManager.GetActiveScene().buildIndex);
         coroutine = Wait();
         StartCoroutine(coroutine);
     }
 
     void Update()
     {
-        if (CollisionBullet.totalScore >= maxScore || time >= maxTime)
+        if (time >= maxTime) // remove CollisionBullet.totalScore >= maxScore || 
         {
             Destroy(GameObject.Find("Player"));
             time = 0;
