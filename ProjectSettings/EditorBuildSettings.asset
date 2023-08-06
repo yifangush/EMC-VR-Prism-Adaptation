@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/InstructionScene.unity
-    guid: f40a3f4639a4e4342bd3955880281121
-  - enabled: 1
     path: Assets/Scenes/DartScene0.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
@@ -23,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DartScene4.unity
     guid: bd2229c9d881faf4db9c466e164bc305
+  - enabled: 1
+    path: Assets/Scenes/InstructionScene.unity
+    guid: f40a3f4639a4e4342bd3955880281121
   - enabled: 1
     path: Assets/Scenes/BreakScene.unity
     guid: b121b42167b8eed46a1d887603acd9c2

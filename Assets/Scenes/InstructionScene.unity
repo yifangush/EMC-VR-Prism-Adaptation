@@ -292,13 +292,12 @@ MonoBehaviour:
     Your job is to try to hit as close to the center of the target as possible.
 
     -
-    The simulation consists of 6 rounds.
+    The simulation consists of 5 rounds.
 
-    - You need to achieve a minimum score
-    to advance to the next round.
+    - The length of each round is 60 seconds.
 
-    - After each round there will be a break of
-    10 seconds.
+    -
+    After each round there will be a break of 10 seconds.
 
 
     Press SPACE to begin.'

@@ -19,12 +19,12 @@ public class Gun : MonoBehaviour
     public static float time = 0;
     public static int round = 0;
     public static int maxScore = 750; // 1000 -> 750 score to reach, 150 for debug testing
-    public static int maxTime = 5; // 2.5 minutes per round maximum
+    public static int maxTime = 60; // 1 minutes per round maximum CHANGE THIS 
     public static bool rest = false;
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(2f);
         Debug.Log("Coroutine called");
 
         StartCoroutine(Fire());
@@ -41,13 +41,24 @@ public class Gun : MonoBehaviour
 
             bulletSpawnPoint.transform.rotation = hand.transform.rotation;
             // ROTATION ECCENTRICITY: 
-            if (SceneManager.GetActiveScene().buildIndex <= 4)
+            int ind = SceneManager.GetActiveScene().buildIndex;
+            switch (ind)
             {
-                eccentricity = SceneManager.GetActiveScene().buildIndex * 10;
-            }
-            else
-            {
-                eccentricity = 0;
+                case 0:
+                    eccentricity = 0;
+                    break;
+                case 1:
+                    eccentricity = 15;
+                    break;
+                case 2:
+                    eccentricity = -15;
+                    break;
+                case 3:
+                    eccentricity = 30;
+                    break;
+                case 4:
+                    eccentricity = -30;
+                    break;
             }
             Debug.Log("Bullet rotated to " + eccentricity);
             bulletSpawnPoint.transform.Rotate(new Vector3(10, eccentricity, 0));
@@ -70,7 +81,7 @@ public class Gun : MonoBehaviour
         StartCoroutine(coroutine);
     }
 
-    void Update()
+    void Update() //This probably needs to be changed because player is not destroyed
     {
         if (time >= maxTime) // remove CollisionBullet.totalScore >= maxScore || 
         {
@@ -78,13 +89,13 @@ public class Gun : MonoBehaviour
             time = 0;
             CollisionBullet.totalScore = 0;
             round += 1;
-            if (round <= 5)
+            if (round <= 4)
             {
-                SceneManager.LoadScene(6);
+                SceneManager.LoadScene(6); //break scene
             }
             else
             {
-                SceneManager.LoadScene(7);
+                SceneManager.LoadScene(7); //end scene
             }
         }
 

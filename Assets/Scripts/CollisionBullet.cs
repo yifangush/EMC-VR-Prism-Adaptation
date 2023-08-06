@@ -11,7 +11,7 @@ public class CollisionBullet : MonoBehaviour
     private float reactionTimer = 0;
     public KeyCode StartKey = KeyCode.Space;
     static string dataPath = Directory.GetCurrentDirectory() + "/Assets/Data/";
-    string logFile = dataPath + "Data_" + SceneManager.GetActiveScene().buildIndex * 10 + ".csv";
+    string logFile;
     public static string log; // new line of data
     public float StartTime = 0; // unused
     public static double totalScore = 0;
@@ -19,13 +19,35 @@ public class CollisionBullet : MonoBehaviour
 
     void Start()
     {
+        int ind = SceneManager.GetActiveScene().buildIndex;
+        switch (ind)
+        {
+            case 0:
+                logFile = dataPath + "Data_0.csv";
+                break;
+            case 1:
+                logFile = dataPath + "Data_15.csv";
+                break;
+            case 2:
+                logFile = dataPath + "Data_-15.csv";
+                break;
+            case 3:
+                logFile = dataPath + "Data_30.csv";
+                break;
+            case 4:
+                logFile = dataPath + "Data_-30.csv";
+                break;
+        }
+    
+        
+
         if (!Directory.Exists(dataPath))
         {
             Directory.CreateDirectory(dataPath);
         }
         if (!File.Exists(logFile))
         {
-            File.WriteAllText(logFile, "Time, Distance, Ypos, Zpos, Angle, Score, TotalScore" + Environment.NewLine);
+            File.WriteAllText(logFile, "Time, TargetPos, Distance, Ypos, Zpos, Angle, Score, TotalScore" + Environment.NewLine);
         }
         
         
@@ -53,6 +75,7 @@ public class CollisionBullet : MonoBehaviour
             // ROUNDING
 
             // target position and bullet position used, independent of round:
+            // positive direction is to the LEFT
             angle = Math.Atan(bulletZ / 30.0) - Math.Atan(targetZ / 30.0);
             
             // radian to degree
@@ -89,7 +112,7 @@ public class CollisionBullet : MonoBehaviour
 
             if (true) // log only if valid score // changed from score != 0
             {
-                log += Gun.time + "," + distance + "," + ypos + "," + zpos + "," + angle + "," + score + "," + totalScore;
+                log += Gun.time + "," + targetZ + "," + distance + "," + ypos + "," + zpos + "," + angle + "," + score + "," + totalScore;
                 File.AppendAllText(logFile, log + Environment.NewLine);
                 log = "";
             }

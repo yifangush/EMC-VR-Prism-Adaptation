@@ -33,8 +33,10 @@ public class SceneLoader : MonoBehaviour
         {
             print("space key was pressed - loading next scene");
             print("Leaving Scene " + SceneManager.GetActiveScene().buildIndex.ToString()); // outputs the scene number
-            print("Entering Scene 0"); // outputs next scene number
-            SceneManager.LoadScene(6); // moves to the scene with the next index
+            int k = rnd.Next(0, 5);
+            BreakSwitcher.SceneIndex[0] = k;
+            print("Entering Scene " + k.ToString()); // outputs next scene number
+            SceneManager.LoadScene(k);
         }
 
         /*if (false && CollisionBullet.totalScore >= 150) // remove 0 &&
@@ -53,10 +55,12 @@ public class SceneLoader : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Backspace) && SceneManager.GetActiveScene().buildIndex == 8)
         {
             print("Backspace key was pressed - loading next scene");
-            print("Leaving Tutorial Scene "); // outputs the scene number
-            print("Entering Dart Scene 0");
+            print("Leaving Tutorial Scene"); // outputs the scene number
+            int k = rnd.Next(0, 5);
+            BreakSwitcher.SceneIndex[0] = k;
+            print("Entering Scene " + k.ToString()); // outputs next scene number
             Destroy(GameObject.Find("Player"));
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(k);
         }
     }
 

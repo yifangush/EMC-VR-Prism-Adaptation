@@ -6,12 +6,11 @@ using System.IO;
 using System;
 using TMPro;
 
-
 public class PositionControl : MonoBehaviour
 {
-    public static string[] pos = { "Position 0", "Position -10", "Position 10", "Position -20", "Position 20" };
+    public static string[] pos = { "Position 0", "Position -15", "Position 15", "Position 30", "Position -30" };
     Random rnd = new Random();
-    public static int i = 0;
+    public static int i;
     private int change_time = 6; // 9 sec + 5 sec initial delay  // 7 sec sweet point for 4-sec bullet reload
     public float timer = 0;
     private int numTrials = 0;
@@ -24,24 +23,27 @@ public class PositionControl : MonoBehaviour
     void Start()
     {
         GameObject.Find("Target").transform.position = GameObject.Find(pos[0]).transform.position;
+        i = rnd.Next(0, pos.Length);
     }
 
     IEnumerator change()
     {
-        int j = i;
+      int j = i;
         while (j == i)
         {
-            i = rnd.Next(0, pos.Length);
+        i = rnd.Next(0, pos.Length);
         }
+        // i = 0;
+        // this is a radical change; you should decide on whether to adopt it
 
         Debug.Log("Changing to position #" + i + ": " + pos[i]);
         GameObject.Find("Target").transform.position = GameObject.Find(pos[i]).transform.position;
-        yield return new WaitForSecondsRealtime(0);
+        yield return new WaitForSecondsRealtime(0); 
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if (Time.timeSinceLevelLoad - timer > change_time) 
         {
             StartCoroutine(change());

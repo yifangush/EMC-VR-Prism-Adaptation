@@ -12,7 +12,11 @@ public class BreakSwitcher : MonoBehaviour
     public static int[] SceneIndex = { -1, -1, -1, -1, -1 };
     IEnumerator Rest()
      {
-         yield return new WaitForSeconds(1f); // wait 10f-second break until next round
+        for (int i = 0; i < 5; i++)
+        {
+            Debug.Log(SceneIndex[i]);
+        }
+         yield return new WaitForSeconds(10f); // wait 10f-second break until next round
          //StartCoroutine(Gun.coroutine);
          if (SceneIndex[4] == -1)
          {
@@ -41,6 +45,7 @@ public class BreakSwitcher : MonoBehaviour
                  if (SceneIndex[i] == -1)
                  {
                      SceneIndex[i] = k;
+                     break;
                  }
              }
 
@@ -48,7 +53,7 @@ public class BreakSwitcher : MonoBehaviour
          }
          else
          {
-             SceneManager.LoadScene(0);
+             SceneManager.LoadScene(7);
          }
 
      }
@@ -57,14 +62,14 @@ public class BreakSwitcher : MonoBehaviour
     
     void Start()
      {
+        StartCoroutine(Rest());
 
-
-     }
+    }
 
      // Update is called once per frame
      void Update()
      {
-                StartCoroutine(Rest());
+                
 
 
 
