@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/DartScene0.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/DartScene1.unity
+    guid: ceeb5681bf947ad43accd82d11a7b223
+  - enabled: 1
+    path: Assets/Scenes/DartScene2.unity
+    guid: 2b5e9bf2f7152c642b5d15b8465993d3
+  - enabled: 1
+    path: Assets/Scenes/DartScene3.unity
+    guid: 8b320a8d99f59fc4cb853ba6d45f44a1
+  - enabled: 1
+    path: Assets/Scenes/DartScene4.unity
+    guid: bd2229c9d881faf4db9c466e164bc305
+  - enabled: 1
+    path: Assets/Scenes/InstructionScene.unity
+    guid: f40a3f4639a4e4342bd3955880281121
+  - enabled: 1
+    path: Assets/Scenes/BreakScene.unity
+    guid: b121b42167b8eed46a1d887603acd9c2
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 4970ad8839e026a4ab9abd9bf4afbeeb
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: b3c38bc4d02365c4fbe77a3e15ff8aaf
+  m_configObjects:
+    Unity.XR.OpenVR.Settings: {fileID: 11400000, guid: 0fa21382294f9594f80b183dd0914567, type: 2}
+    Varjo.XR.Settings: {fileID: 11400000, guid: 6cfc2c92fbd6d094fa4af5fa76a7bfb2, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 314bf9f2fe0bb3f46b4c826002d818a9, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: c5dce30e2cfd8b34c8c534eb783583d8, type: 2}
