@@ -6,7 +6,7 @@ using System.IO;
 using UnityEngine.SceneManagement;
 
 
-public class CollisionBullet : MonoBehaviour
+public class TutCollision : MonoBehaviour
 {
     private float reactionTimer = 0;
     public KeyCode StartKey = KeyCode.Space;
@@ -19,41 +19,6 @@ public class CollisionBullet : MonoBehaviour
 
     void Start()
     {
-        int ind = SceneManager.GetActiveScene().buildIndex;
-        switch (ind)
-        {
-            case 0:
-                logFile = dataPath + "Data_0.csv";
-                break;
-            case 1:
-                logFile = dataPath + "Data_15.csv";
-                break;
-            case 2:
-                logFile = dataPath + "Data_-15.csv";
-                break;
-            case 3:
-                logFile = dataPath + "Data_30.csv";
-                break;
-            case 4:
-                logFile = dataPath + "Data_-30.csv";
-                break;
-            default:
-                logFile = dataPath + "Data_Null.csv";
-                break;
-        }
-    
-        
-
-        if (!Directory.Exists(dataPath))
-        {
-            Directory.CreateDirectory(dataPath);
-        }
-        if (!File.Exists(logFile)) 
-        {
-            File.WriteAllText(logFile, "Time, TargetPos, Distance, Ypos, Zpos, Angle, Score, TotalScore" + Environment.NewLine);
-        }
-        
-        
 
     }
 
@@ -80,7 +45,7 @@ public class CollisionBullet : MonoBehaviour
             // target position and bullet position used, independent of round:
             // positive direction is to the LEFT
             angle = Math.Atan(bulletZ / 30.0) - Math.Atan(targetZ / 30.0);
-            
+
             // radian to degree
             angle *= 180.0 / Math.PI;
 
@@ -118,13 +83,6 @@ public class CollisionBullet : MonoBehaviour
 
             Debug.Log("Total Score: " + totalScore);
 
-            if (SceneManager.GetActiveScene().buildIndex != 8) // log only if valid score from nonTut scene // changed from score != 0
-            {
-                log += Gun.time + "," + targetZ + "," + distance + "," + ypos + "," + zpos + "," + angle + "," + score + "," + totalScore;
-                File.AppendAllText(logFile, log + Environment.NewLine);
-                log = "";
-            }
-            detectCollision = true;
         }
     }
 

@@ -37,7 +37,7 @@ public class PositionControl : MonoBehaviour
         // i = 0;
         // this is a radical change; you should decide on whether to adopt it
 
-        Debug.Log("Changing to position #" + i + ": " + pos[i]);
+        Debug.Log("Changing to position #" + i + ": " + pos[i]); 
         GameObject.Find("Target").transform.position = GameObject.Find(pos[i]).transform.position;
         yield return new WaitForSecondsRealtime(0); 
     }
